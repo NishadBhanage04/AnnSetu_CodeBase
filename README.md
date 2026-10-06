@@ -1,4 +1,4 @@
-# 🍲 Food Donation Platform
+# 🍲 AnnSetu
 
 Connecting generous food donors with NGOs to reduce waste and fight hunger.
 

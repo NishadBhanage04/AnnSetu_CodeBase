@@ -3,9 +3,9 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Surplus Food Redistribution",
+  title: "AnnSetu",
   description:
-    "Connect food donors with NGOs to redistribute surplus food that would otherwise go to waste.",
+    "Connecting food donors with NGOs to redistribute surplus food that would otherwise go to waste.",
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
           <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
             <Link href="/" className="text-lg font-semibold text-stone-900">
               <span aria-hidden className="mr-2">🥗</span>
-              Surplus Food Network
+              AnnSetu
             </Link>
             <nav className="flex items-center gap-4 text-sm">
               <Link
