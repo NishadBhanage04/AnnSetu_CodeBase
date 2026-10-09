@@ -1,6 +1,6 @@
 // Listing CRUD + status transitions. Server-only.
 import { createClient } from "./supabase/server";
-import type { Listing, ListingStatus } from "./supabase/types";
+import type { Listing, ListingDraft, ListingStatus } from "./supabase/types";
 
 export type ListingDraft = {
   food_type: string;
@@ -144,7 +144,7 @@ export async function uploadListingPhoto(
 ): Promise<string> {
   const supabase = await createClient();
   // Restrict the storage path extension to safe image types. Anything else
-  // is silently coerced to "jpg" — the file is still uploaded (contentType
+  // is silently coerced to "jpg" — the content type
   // from the browser is the real guard), but its path can't lie about what
   // it is.
   const ALLOWED_EXTS = ["jpg", "jpeg", "png", "webp", "gif"] as const;
@@ -155,24 +155,7 @@ export async function uploadListingPhoto(
   const path = `${donorOrgId}/${listingId}.${ext}`;
   const { error } = await supabase.storage
     .from("listing-photos")
-    .upload(path, file, { upsert: true, contentType: file.type });
+    .upload(path, file, { upsert: true, contentType: file.type }, { upsert: true });
   if (error) throw error;
   return path;
 }
-
-/** Read the public URL for a stored photo path. */
-export function getListingPhotoUrl(path: string | null): string | null {
-  if (!path) return null;
-  // Public bucket — use the public URL builder.
-  // (We avoid instantiating a client here so this helper stays sync.)
-  const base = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  return `${base}/storage/v1/object/public/listing-photos/${path}`;
-}
-
-export const STATUS_LABEL: Record<ListingStatus, string> = {
-  open: "Open",
-  claimed: "Claimed",
-  completed: "Completed",
-  expired: "Expired",
-  cancelled: "Cancelled",
-};
