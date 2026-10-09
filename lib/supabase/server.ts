@@ -1,5 +1,6 @@
 // Server-side Supabase client (Server Components, Route Handlers, Server Actions).
 // Reads/writes cookies via next/headers so auth survives SSR.
+import 'server-only';
 import { cookies } from "next/headers";
 
 import { createServerClient } from "@supabase/ssr";

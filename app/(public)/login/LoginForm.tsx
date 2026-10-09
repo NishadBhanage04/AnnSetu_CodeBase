@@ -5,7 +5,7 @@ import { useActionState } from "react";
 import { Button } from "@/components/ui/Button";
 import { ErrorText, FieldGroup, Input, Label } from "@/components/ui/Form";
 
-import { loginAction } from "../actions/auth";
+import { loginAction } from "@/app/actions/auth";
 
 export function LoginForm({ next }: { next: string }) {
   const [state, formAction, pending] = useActionState(loginAction, undefined);
