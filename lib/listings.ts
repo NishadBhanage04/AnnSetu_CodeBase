@@ -1,7 +1,7 @@
 // Listing CRUD + status transitions. Server-only.
 import 'server-only';
 import { createClient } from "./supabase/server";
-import type { Listing, ListingDraft, ListingStatus } from "./supabase/types";
+import type { Listing, ListingStatus } from "./supabase/types";
 
 export type ListingDraft = {
   food_type: string;
