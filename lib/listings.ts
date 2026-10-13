@@ -156,7 +156,7 @@ export async function uploadListingPhoto(
   const path = `${donorOrgId}/${listingId}.${ext}`;
   const { error } = await supabase.storage
     .from("listing-photos")
-    .upload(path, file, { upsert: true, contentType: file.type }, { upsert: true });
+    .upload(path, file, { upsert: true, contentType: file.type });
   if (error) throw error;
   return path;
 }
