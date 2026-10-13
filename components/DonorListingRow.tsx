@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/StatusBadge";
 import { cancelListingAction } from "@/app/actions/listings";
-import { getListingPhotoUrl } from "@/lib/listings";
+import { getListingPhotoUrl } from "@/lib/listings-utils";
 import type { Listing } from "@/lib/supabase/types";
 
 function formatDateTime(iso: string): string {

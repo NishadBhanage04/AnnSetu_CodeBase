@@ -3,7 +3,7 @@
 // redirected to /login with a `next` query param.
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
-import { dashboardPathForRole } from "@/lib/auth";
+import { dashboardPathForRole } from "@/lib/auth-utils";
 import type { OrgRole } from "@/lib/supabase/types";
 
 const PUBLIC_ROUTES = ["/login", "/signup", "/support"];

@@ -10,7 +10,7 @@ import {
   completeListingAction,
   releaseClaimAction,
 } from "@/app/actions/claims";
-import { getListingPhotoUrl } from "@/lib/listings";
+import { getListingPhotoUrl } from "@/lib/listings-utils";
 import type { Listing } from "@/lib/supabase/types";
 
 function formatDateTime(iso: string): string {

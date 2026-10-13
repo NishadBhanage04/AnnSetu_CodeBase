@@ -1,4 +1,5 @@
 // Listing CRUD + status transitions. Server-only.
+import 'server-only';
 import { createClient } from "./supabase/server";
 import type { Listing, ListingDraft, ListingStatus } from "./supabase/types";
 
