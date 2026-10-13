@@ -124,8 +124,8 @@ export async function loginAction(
   });
 }
 
-export async function logoutAction(formData?: FormData) {
-  return safeAction(async () => {
+export async function logoutAction(formData: FormData): Promise<void> {
+  await safeAction(async () => {
     const supabase = await createClient();
     await supabase.auth.signOut();
     redirect("/");
